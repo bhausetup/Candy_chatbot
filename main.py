@@ -46,7 +46,7 @@ STKR7 = os.environ.get("STKR7", "CAACAgQAAxkBAALRkWNZXYyCvkfI4d1lK0AEMkG0GdUmAAJ
 STKR8 = os.environ.get("STKR8", "CAACAgQAAxkBAALRkmNZXZg1zuakmgkPf2lfXPXi4bZaAALACgACQUGpUjAAAYL3e09XCyoE")
 
 bot = Client(
-    "CandyBot" ,
+    "Hellbot" ,
     api_id = API_ID,
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
@@ -194,8 +194,7 @@ PNG_BTN = [
 ]
 
 TOOLS_DATA_READ = f"""
-<u>**ᴛᴏᴏʟs ғᴏʀ {BOT_NAME} ᴀʀᴇ:**</u>
-**➻ ᴜsᴇ `/repo` ғᴏʀ ɢᴇᴛᴛɪɴɢ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ!**
+<u>**ᴛᴏᴏʟs ғᴏʀ {BOT_NAME} ᴀʀᴇ:**</u
 **──────────────**
 **➻ ᴜsᴇ `/ping` ғᴏʀ ᴄʜᴇᴄᴋɪɴɢ ᴛʜᴇ ᴘɪɴɢ ᴏғ {BOT_NAME}**
 **──────────────**
@@ -326,8 +325,8 @@ async def restart(client, m: Message):
 
 @bot.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
-    candydb = MongoClient(MONGO_URL)
-    candy = candydb["CandyDb"]["Candy"]
+    Helldb = MongoClient(MONGO_URL)
+    hell = helldb["hellDb"]["hell"]
     if query.data == "HELP":
         await query.message.edit_text(
                       text = HELP_READ,
@@ -406,7 +405,7 @@ async def cb_handler(Client, query: CallbackQuery):
             if is_candy:
                 await query.edit_message_text("**ᴄʜᴀᴛ-ʙᴏᴛ ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ.**")
                             
-@bot.on_message(filters.command("repo"))
+@bot.on_message(filters.command("Lol"))
 async def repo(client, message):
     await message.reply_text(
        text=SOURCE_READ,
@@ -493,10 +492,10 @@ async def candyai(client: Client, message: Message):
    chatai = chatdb["Word"]["WordDb"]   
 
    if not message.reply_to_message:
-       candydb = MongoClient(MONGO_URL)
-       candy = candydb["CandyDb"]["Candy"] 
-       is_candy = candy.find_one({"chat_id": message.chat.id})
-       if not is_candy:
+       Helldb = MongoClient(MONGO_URL)
+       Hell = helldb["CandyDb"]["Candy"] 
+       is_hell = hell.find_one({"chat_id": message.chat.id})
+       if not is_hell:
            await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.text})  
@@ -697,5 +696,5 @@ async def candyprivatesticker(client: Client, message: Message):
            if not Yo == "text":
                await message.reply_sticker(f"{hey}")
 
-print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ! ɴᴏᴡ ғᴜᴄᴋ ᴏғғ! ᴀɴᴅ ɢᴏ ᴛᴏ @Best_FriendsFor_Ever ʙɪᴛᴄʜ!!")      
+print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ! ɴᴏᴡ ғᴜᴄᴋ ᴏғғ! ᴀɴᴅ ɢᴏ @ISHQ00_I bᴛᴄʜ!!")      
 bot.run()
